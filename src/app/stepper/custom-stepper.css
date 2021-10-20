@@ -1,0 +1,136 @@
+* {
+  /* border: 1px solid grey; */
+  box-sizing: border-box;
+}
+
+.wrapper {
+  border: 1px solid grey;
+  width: 100%;
+  padding: 8px 4px;
+}
+
+.steps-wrapper {
+  width: 100%;
+  display: flex;
+  padding-bottom: 4px;
+}
+
+.step-item {
+  /* border: 1px solid red; */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  min-height: 50px;
+}
+
+.highlighted {
+  /* border: 1px dotted grey; */
+  background: #e4e4e4;
+}
+
+.label-item {
+  flex-grow: 1;
+  min-width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid grey; */
+}
+
+/* important for line styling */
+.circle-wrapper {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  min-height: 60px;
+}
+
+.circle-wrapper.vertical {
+  flex-direction: column;
+}
+
+.line {
+  display: flex;
+  flex-grow: 1;
+  align-self: center;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.no-line {
+  border: unset;
+  border-width: 0;
+}
+
+/* end line styling */
+
+.circle {
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 50%;
+  cursor: pointer;
+  align-self: center;
+  transition: all 0.1s ease;
+}
+
+.first {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.column {
+  flex-direction: column;
+  align-self: stretch;
+  min-height: 50px;
+  padding: 0 4px;
+}
+
+.vertical-content {
+  width: 100%;
+  padding: 0 4px;
+  display: block;
+}
+
+.projected-content {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.step-label {
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid grey;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.large {
+  width: 40px;
+  height: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.1s ease;
+}
+
+.untouched {
+  border-color: grey;
+}
+
+.completed {
+  border-color: blue;
+}
+
+.active {
+  border-color: green;
+}

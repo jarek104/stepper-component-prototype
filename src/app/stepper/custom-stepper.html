@@ -1,0 +1,36 @@
+<div class="wrapper" tabindex="0" cdkMonitorElementFocus (cdkFocusChange)="_focusChange($event)"
+	(keydown)="_keydown($event)">
+	<div class="steps-wrapper" [class.column]="vertical">
+		<div class="step-item" *ngFor="let step of steps; let i = index; let isLast = last; let isFirst = first">
+			<div class="label-item">
+				<div class="circle-wrapper" [class.vertical]="vertical"
+					[class.highlighted]="focusedCircleIndex === i && circlesFocusable">
+					<div *ngIf="!vertical" class="line" [class.no-line]="isFirst" [class.active]="selectedIndex === i"
+						[class.completed]="step.completed === true && selectedIndex !== i"
+						[class.untouched]="step.interacted === false"></div>
+
+					<div class="circle" (click)="onClick(i)" [class.large]="selectedIndex === i"
+						[class.active]="selectedIndex === i"
+						[class.completed]="step.completed === true && selectedIndex !== i"
+						[class.untouched]="step.interacted === false">
+						{{ i + 1 }}
+					</div>
+
+					<div class="line" [class.no-line]="isLast" [class.active]="selectedIndex === i + 1"
+						[class.completed]="isNextCompleted(i)" [class.untouched]="isNextUntouched(i)"></div>
+				</div>
+				<div *ngIf="!vertical">{{step.label}}</div>
+			</div>
+
+			<div *ngIf="vertical" class="vertical-content">
+				<div class="step-label">{{step.label}}</div>
+				<div class="projected-content" [@inOutAnimation] *ngIf="selectedIndex === i">
+					<ng-container [ngTemplateOutlet]="selected.content"> </ng-container>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="!vertical">
+		<ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+	</div>
+</div>
